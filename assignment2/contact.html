@@ -1,0 +1,92 @@
+<html>
+        <head>
+                <title>Contact Us</title>
+                <link rel="stylesheet" href="styles.css">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <style>
+                        #contactHeader {
+                                font-family: "Gafata";
+                        }
+                        .contactBody {
+                                background-color: #EEEDE7;
+                                max-width: 100%;
+                                display:flex;
+                                justify-content: center;
+                                text-align: center;
+                                flex-direction: column;
+                        }
+
+                        .header {
+                                display:flex;
+                                background-image: url("./images/home4.png");
+                                background-size: cover;
+                                height: 50vh;
+                                width: 100%;
+                                max-width: 100%;
+                                justify-content: center;
+                                text-align: center;
+                                align-items: center;
+                        }
+
+                        .headerText {
+                                font-family: "Gafata";
+                                color: #000000;
+                        }
+
+                        .textBox {
+                                max-width: 100%;
+                                border-style: solid; 
+                                border-color: #000000;
+                                border-radius: 10%;
+                                background-color:rgba(255, 255, 255, 0.5);
+                        }
+                </style>
+
+        </head>
+        <body>
+                <nav style="padding-bottom:0px;
+                margin-bottom:0px;">
+                        <a href="redfin.html">
+                        <img id="headerLogo" src="./images/redfin.jpg" alt="Redfin Logo" />
+                        </a>
+                        <div class="navBarText">
+                                <a href="services.html">SERVICES</a> |
+                                <a href="contact.html">CONTACT</a>
+                        </div>
+
+                </nav>
+                <div class="header">
+                        <div class="textBox">
+                        <h1 class="headerText">Need to Contact Us?</h1>
+                        </div>
+                </div>
+                <div class="contactBody">
+                        <h1 id="contactHeader">Just fill out this form below!</h1>
+                        <form>
+                                <label for="firstName">First name:</label><br />
+                                <input type="text" name="firstName"><br />
+                                <label for="lastName">Last name:</label><br />
+                                <input type="text" name="lastName"><br />
+                                <label for="email">Email Address:</label><br />
+                                <input type="email" name="email"><br />
+                                <label for="phone">Phone Number:</label><br />
+                                <input type="tele" name="phoneNumber"><br />
+                                <input type="submit" />
+                        </form>
+                </div>
+                <footer>
+                        <div class="footerSection">
+                                <p class="footerText">About Us</p>
+                        </div>
+                        <div class="footerSection">
+                                <p class="footerText">Careers</p>
+                        </div>
+                        <div class="footerSection">
+                                <p class="footerText">Connect With Us</p>
+                        </div>
+                        <div class="footerSection">
+                                <img id="footerLogo" src="./images/redfin.jpg" alt="Redfin logo"/>
+                        </div>
+                </footer>
+        </body>
+</html>

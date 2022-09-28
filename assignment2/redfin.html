@@ -1,0 +1,176 @@
+<html>
+        <head>
+                <title>Redfin</title>
+                <link rel="stylesheet" href="styles.css">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <style>
+                        #buyHome {
+                                border-style: solid;
+                                background-image: url("./images/home1.webp");
+                                background-size: cover;
+                                height: 75vh;
+                                width: 30%;
+                                max-width: 100%;
+                        }
+
+                        #sellHome {
+                                border-style: solid;
+                                background-image: url("./images/home2.jpg");
+                                background-size: cover;
+                                height: 75vh;
+                                width: 30%;
+                                max-width: 100%;
+                        }
+
+                        #rentHome {
+                                border-style: solid;
+                                background-image: url("./images/home3.jpg");
+                                background-size: cover;
+                                height: 75vh;
+                                width: 30%;
+                                max-width: 100%;
+                        }
+
+                        .homeContainer {
+                                max-width: 100%;
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                background-color: #EEEDE7;
+                                padding-left: 1%;
+                                padding-right: 1%;
+                                padding-top: 5%;
+                                padding-bottom: 5%;
+
+                        }
+
+                        .buttonContainer {
+                                max-width: 100%;
+                                border-style: solid; 
+                                border-color: #000000;
+                                border-radius: 10%;
+                                width: 6vw;
+                                margin-top: 100%;
+                                margin-left: 40%;
+                                display: flex;
+                                justify-content: center;
+                                background-color:rgba(255, 255, 255, 0.5);
+                        }
+
+                        .buttonText {
+                            font-family: "Gafata";   
+                            font-size: 1.5em; 
+                        }
+
+                        .taglineText {
+                                display:flex;
+                                justify-content: center;
+                                text-align: center;
+                                font-family: "Gafata";   
+                                font-size: 2em;
+                                background-color: #EEEDE7;
+                                margin-bottom: 0px;
+                                margin-top: 0px;
+                        }
+                        
+                        #topTaglineText {
+                                padding-top: 5vh;
+                                padding-bottom: 2vh;
+                        }
+
+                        @media only screen and (max-width: 850px) {
+                                .homeContainer {
+                                max-width: 100%;
+                                display:block;
+                                }
+
+                                #buyHome {
+                                        border-style: solid;
+                                        background-image: url("./images/home1.webp");
+                                        background-size: cover;
+                                        width: 100%;
+                                        margin-bottom: 5%;
+                                        max-width: 100%;
+                                }
+
+                                #sellHome {
+                                        border-style: solid;
+                                        background-image: url("./images/home2.jpg");
+                                        background-size: cover;
+                                        margin-bottom: 5%;
+                                        width: 100%;
+                                        max-width: 100%;
+                                }
+
+                                #rentHome {
+                                        border-style: solid;
+                                        background-image: url("./images/home3.jpg");
+                                        background-size: cover;
+                                        margin-bottom: 5%;
+                                        width: 100%;
+                                        max-width: 100%;
+                                }
+
+                                .buttonContainer {
+                                        max-width: 100%;
+                                        border-style: solid; 
+                                        border-color: #000000;
+                                        border-radius: 10%;
+                                        width: 20%;
+                                        margin-top: 120%;
+                                        margin-left: 45%;
+                                        display: flex;
+                                        justify-content: center;
+                                        background-color:rgba(255, 255, 255, 0.5);
+                                }
+                        }
+                </style>
+
+        </head>
+        <body>
+                <nav style="padding-bottom:0px;
+                margin-bottom:0px;">
+                        <a href="redfin.html">
+                        <img id="headerLogo" src="./images/redfin.jpg" alt="Redfin Logo" />
+                        </a>
+                        <div class="navBarText">
+                                <a href="services.html">SERVICES</a> |
+                                <a href="contact.html">CONTACT</a>
+                        </div>
+
+                </nav>
+                <h1 id="topTaglineText" class="taglineText">The modern way to buy a home.</h1>
+                <h2 class="taglineText">Explore options for buying, selling, and renting a home today.</h2>
+                <div class="homeContainer">
+                        <div id="buyHome">
+                                <div class="buttonContainer">
+                                        <p class="buttonText">BUY</p>
+                                </div>
+                        </div>
+                        <div id="sellHome">
+                                <div class="buttonContainer">
+                                        <p class="buttonText">SELL</p>
+                                </div>
+                        </div>  
+                        <div id="rentHome">
+                                <div class="buttonContainer">
+                                        <p class="buttonText">RENT</p>
+                                </div>
+                        </div>  
+                        </div> 
+                <footer>
+                        <div class="footerSection">
+                                <p class="footerText">About Us</p>
+                        </div>
+                        <div class="footerSection">
+                                <p class="footerText">Careers</p>
+                        </div>
+                        <div class="footerSection">
+                                <p class="footerText">Connect With Us</p>
+                        </div>
+                        <div class="footerSection">
+                                <img id="footerLogo" src="./images/redfin.jpg" alt="Redfin logo"/>
+                        </div>
+                </footer>
+        </body>
+</html>
