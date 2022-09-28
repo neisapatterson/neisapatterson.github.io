@@ -4,23 +4,91 @@
                 <link rel="stylesheet" href="styles.css">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <style>
+                        .servicesContent {
+                                display: flex;
+                                flex-direction: column;
+                                max-width: 100%;
+                                background-color: #EEEDE7;
+                        }
+                        .images {
+                                width: 50%;
+                                max-width: 100%;
+                                padding-bottom: 2vh;
+                        }
+
+                        .servicesSection {
+                                display: flex;
+                                max-width: 100%;
+                                flex-direction: row;
+                                justify-content: space-between;
+                        }
+                        
+                        .servicesText {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-family: "Gafata";
+                                font-size: 1.5em;
+                                text-align: center;
+                                border-style: solid;
+                        }
+
+                        .headingText {
+                                font-family: "Gafata";
+                                font-size: 2em;
+                                text-align: center;
+                        }
+
+                        @media only screen and (max-width: 850px) {
+                                .servicesContent {
+                                        display: block;
+                                        max-width: 100%;
+                                        background-color: #EEEDE7;
+                                }
+
+                                .images {
+                                        width: 100%;
+                                        max-width: 100%;
+                                        padding-bottom: 2vh;
+                                }
+
+                                .servicesSection {
+                                        display: block;
+                                        max-width: 100%;
+                                }
+                        }
                 </style>
 
         </head>
         <body>
-                <nav style="padding-bottom:0px;
-                margin-bottom:0px;">
-                        <a href="redfin.html">
-                        <img id="headerLogo" src="./images/redfin.jpg" alt="Redfin Logo" />
-                        </a>
-                        <div class="navBarText">
-                                <a href="services.html">SERVICES</a> |
-                                <a href="contact.html">CONTACT</a>
-                        </div>
-
+                <nav>
+                        <div class = navBarSection>
+                                <a class="navBarText" href="redfin.html">
+                                        <img id="navLogo" src="./images/redfin.jpg" alt="Redfin logo"/>  
+                                </a>                             
+                        </div> 
+                        <div class = navBarSection>
+                                <a class="navBarText" href="services.html">SERVICES</a>                          
+                        </div> 
+                        <div class = navBarSection>
+                                <a class="navBarText" href="contact.html"> CONTACT US</a>                          
+                        </div> 
                 </nav>
                 <div class="servicesContent">
-
+                        <h1 class="headingText">Your New Way Home.</h1>
+                        <h1 class="headingText">Learn about all the ways Redfin can help solve your home needs.</h1>
+                        <div class="servicesSection">
+                                <img class="images" src="./images/selling-sunset-8.webp" alt="Selling Sunset office just in case anyone is a fan"/>
+                                <p class="servicesText">Let Redfin help you connect with local experienced real estate agents dedicated to helping you with your next step.</p>
+                        </div>
+                        <div class="servicesSection">
+                                <p class="servicesText">Use Redfin to search for local homes that are available to buy or rent.</p>
+                                <img  class="images" src="./images/map-of-massachusetts.jpg" alt="Map of the state of Massachusetts"/>
+                        </div>
+                        <div class="servicesSection">
+                                <img  class="images" src="./images/real_estate.png" alt="Clip art of real estate"/>
+                                <p class="servicesText">List your home on Redfin and let us help get you the best price for your home!</p>
+                        </div>
                 </div>
                 <footer>
                         <div class="footerSection">

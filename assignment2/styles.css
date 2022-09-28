@@ -6,37 +6,46 @@
  }
 
  nav {
-        display:flex;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        display: flex;
         flex-direction: row;
         max-width: 100%;
-        margin-bottom: 0px;
-        padding-bottom: 0px;
  }
 
- #headerLogo {
+ #navLogo {
         max-width: 100%;
-        /* height: 100px; */
         width: 20vw;
+        padding-top: 0px;
+}
+
+.navBarSection {
+        border-top-width: 100px;
+        max-width: 100%;
+        width: 33%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
 }
 
 .navBarText {
-        width: 50vw;
-        padding-top: 3vh;
-        padding-left: 55vw;
+        display: flex;
+        justify-content: right;
         font-family: "Gafata";
         font-size: 2.5em;
 }
 
 footer {
         border-top-style: solid;
-        border-top-color: #000000;
         border-top-width: 1px;
         display: flex;
         flex-direction: row;
+        max-width: 100%;
 }
 
 .footerSection {
-        border-top-color: #000000;
         border-top-width: 100px;
         max-width: 100%;
         width: 25%;
@@ -49,6 +58,7 @@ footer {
 
 #footerLogo {
         max-width: 100%;
-        width: 30%;
-        padding-left: 50%;
+        width: 10vw;
+        padding-left: 8vw;
+        padding-top: 0px;
 }
