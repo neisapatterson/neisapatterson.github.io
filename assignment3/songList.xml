@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="styles.css"?>
+<SongList>
+        <ListTitle>Dan's Song List</ListTitle>
+        <Song number="1">
+                <SongTitle>Song Title: Sweater Weather</SongTitle>
+                        <Artist>Artist: The Neighbourhood</Artist>
+                        <Genre>Genre: Alternative</Genre>
+                        <Year>Year: 2013</Year>
+        </Song>
+        <Song number="2">
+                <SongTitle>Song Title: Chanel</SongTitle>
+                        <Artist>Arist: Frank Ocean</Artist>
+                        <Genre>Genre: Pop</Genre>
+                        <Year>Year: 2017</Year>
+        </Song>
+        <Song number="3">
+                <SongTitle>Song Title: LA Laker Freestyle</SongTitle>
+                        <Artist>Artist: Central Cee</Artist>
+                        <Genre>Genre: Hip-Hop</Genre>
+                        <Genre>Genre: Rap</Genre>
+                        <Year>Year: 2022</Year>
+        </Song>
+        <Song number="4">
+                <SongTitle>Song Title: Ex-Factor</SongTitle>
+                        <Artist>Artist: Lauryn Hill</Artist>
+                        <Genre>Genre: R&amp;B</Genre>
+                        <Genre>Genre: Soul</Genre>
+                        <Year>Year: 1998</Year>
+        </Song>
+        <Song number="5">
+                <SongTitle>Song Title: Bound 2</SongTitle>
+                        <Artist>Artist: Kanye West</Artist>
+                        <Genre>Genre: Hip-Hop</Genre>
+                        <Genre>Genre: Rap</Genre>
+                        <Year>Year: 2013</Year>
+        </Song>
+        <Song number="6">
+                <SongTitle>Song Title: Suck It Up</SongTitle>
+                        <Artist>Artist: Monaleo</Artist>
+                        <Genre>Genre: Rap</Genre>
+                        <Year>Year: 2021</Year>
+        </Song>
+        <Song number="7">
+                <SongTitle>Song Title: DEAD MAN WALKING</SongTitle>
+                        <Artist>Artist: Brent Faiyaz</Artist>
+                        <Genre>Genre: R&amp;B</Genre>
+                        <Genre>Genre: Soul</Genre>
+                        <Year>Year: 2022</Year>
+        </Song>
+        <Song number="8">
+                <SongTitle>Song Title: Isn't She Lovely</SongTitle>
+                        <Artist>Artist: Stevie Wonder</Artist>
+                        <Genre>Genre: R&amp;B</Genre>
+                        <Genre>Genre: Soul</Genre>
+                        <Year>Year: 1976</Year>
+        </Song>
+        <Song number="9">
+                <SongTitle>Song Title: Big Steppa</SongTitle>
+                        <Artist>Artist: Flo Milli</Artist>
+                        <Genre>Genre: Hip-Hop</Genre>
+                        <Genre>Genre: Rap</Genre>
+                        <Year>Year: 2022</Year>
+        </Song>
+        <Song number="10">
+                <SongTitle>Song Title: Gang Slide</SongTitle>
+                        <Artist>Artist: Blxst</Artist>
+                        <Genre>Genre: Hip-Hop</Genre>
+                        <Genre>Genre: Rap</Genre>
+                        <Year>Year: 2020</Year>
+        </Song>
+        <Song number="11">
+                <SongTitle>Song Title: Raindrops</SongTitle>
+                        <Artist>Artist: GoldLink</Artist>
+                        <Genre>Genre: Hip-Hop</Genre>
+                        <Genre>Genre: Rap</Genre>
+                        <Year>Year: 2021</Year>
+        </Song>
+        <Song number="12">
+                <SongTitle>Song Title: Betty (Get Money)</SongTitle>
+                        <Artist> Artist: Yung Gravy</Artist>
+                        <Genre>Genre: Hip-Hop</Genre>
+                        <Genre>Genre: Rap</Genre>
+                        <Year>Year: 2022</Year>
+        </Song>
+</SongList>

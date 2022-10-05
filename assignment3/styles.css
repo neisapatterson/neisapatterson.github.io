@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+SongList {
+        background-color: #104511;        
+}
+
+ListTitle {
+        display: flex;
+        max-width: 100%;
+        background-color: #104511;
+        font-family: "Poppins";
+        justify-content: center;
+        color: #FFFFFF;
+        padding: 2vh;
+        font-size: 4.5vh;
+}
+
+Song {
+        display:block;
+        max-width: 100%;
+        background-color: #E8DED1;
+        margin: 2vh;
+}
+
+SongTitle {
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        font-family: "Poppins";
+        padding: 1vh;
+        font-size: 3vh;
+}
+
+Artist {
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        font-family: "Poppins";
+        font-size: 2vh;
+}
+
+Genre {
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        font-family: "Poppins";
+        font-size: 2vh;
+}
+
+Year {
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        font-family: "Poppins";
+        font-size: 2vh;
+}

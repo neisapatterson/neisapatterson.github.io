@@ -1,0 +1,153 @@
+<html>
+        <head>
+                <title>Joe's Hotdog Stand</title>
+                <link rel="stylesheet" href="styles.css">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <style>
+                </style>
+
+        </head>
+        <body>
+                <script>
+                        function round_two_decimals(number) {
+                                let rounded = Math.round((number + Number.EPSILON) * 100) / 100;
+
+                                // check if there is only one decimal place in the case where the second decimal rounded to 0
+                                let roundedAsString = rounded.toString();
+
+                                let decimalValue = 0;
+
+                                // find where the decimal is
+                                for (let i = 0; i < roundedAsString.length; i++) {
+                                        if (roundedAsString[i] == '.') {
+                                                decimalValue = i;
+                                                break;
+                                        }
+                                };
+
+                                // check if it is a whole number
+                                if (decimalValue == 0) {
+                                        roundedAsString += ".00"
+                                } else {
+                                        // check if there are two decimal places, if there is only one, add a 0
+                                        if ((roundedAsString.length - 1) - decimalValue !== 2) {
+                                                roundedAsString += "0";
+                                        };  
+                                };
+
+                                return roundedAsString;
+
+                        }
+                        window.onload = (event) => {
+                                let hotdogPrice = 4.25;
+                                let fryPrice = 2.60;
+                                let drinkPrice = 1.50;
+
+                                // ask the user what they would like to order
+                                let hotdogOrder = prompt("How many hotdogs would you like to order?");
+                                let fryOrder = prompt("How many orders of french fries would you like?");
+                                let drinkOrder = prompt("How many drinks would you like to order?");
+
+                                // write their order to html
+                                document.getElementById('hotdogs').innerHTML = hotdogOrder; 
+                                document.getElementById('fries').innerHTML = fryOrder;
+                                document.getElementById('drinks').innerHTML = drinkOrder;
+
+                                // calculate the subtotal                                
+                                let subtotal = (hotdogOrder * hotdogPrice) + (fryOrder * fryPrice) + (drinkOrder * drinkPrice);
+
+                                subtotal = round_two_decimals(subtotal);
+
+                                document.getElementById('subtotal').innerHTML = "$" + subtotal.toString();
+
+                                // apply the 10% discount if the subtotal is greater than $20
+                                if (subtotal > 20) {
+                                        let discount = subtotal * .10; 
+                                        subtotal = subtotal - discount;
+                                 
+                                        discount = round_two_decimals(discount);
+
+                                        document.getElementById('discountTotal').innerHTML = "$" + discount;
+                                } else {
+                                        subtotal = subtotal - 0
+                                        document.getElementById('discountTotal').innerHTML = "No discount applied."; 
+                                }
+
+                                // add tax
+                                let tax = subtotal * .0625;
+                                tax = round_two_decimals(tax);
+                                tax = tax - 0
+                                let total = subtotal + tax;
+                                total = round_two_decimals(total);
+                                
+                                document.getElementById('tax').innerHTML = "$" + tax;
+
+                                document.getElementById('finalTotal').innerHTML = "$" + total;
+                        };
+
+                </script>
+                <div class="welcome">
+                        <h1>Welcome to Joe's Hotdog Stand!</h1>
+                </div>
+
+                <h2 id="menuTitle">Menu</h2>
+
+                <div class="menu">
+                        <div class="menuColumn">
+                                <p class="menuText">Hotdogs: $4.25 each</p>
+                                <img class="menuImage" src="./images/homemade-hot-dogs-1808491-final-01-ddf78878cb784ccdb617a2ae31674b75.jpg" />
+                        </div>
+
+                        <div class="menuColumn">
+                                <p class="menuText">French Fries: $2.60 each</p>
+                                <img class="menuImage" src="./images/fries.jpg" />
+                        </div>
+
+                        <div class="menuColumn">
+                                <p class="menuText">Drinks: $1.50 each</p>
+                                <img class="menuImage" src="./images/fountain-drinks.jpg">
+                        </div>
+                </div>
+
+
+                <div class="order">
+                        <h2>Your Order:</h2>
+                        <div class="subOrder">
+                                <p class="orderText">Hotdogs: </p>&nbsp;
+                                <p class="orderText" id="hotdogs"></p>
+                        </div>
+
+                        <div class="subOrder">
+                                <p class="orderText">French Fries: </p>&nbsp;
+                                <p class="orderText" id="fries"></p>
+                        </div>
+
+                        <div class="subOrder">
+                                <p class="orderText">Drinks: </p>&nbsp;
+                                <p class="orderText" id="drinks"></p>
+                        </div>
+                </div>
+
+                <div class="totals">
+                        <div class="subtotal">
+                                <p class="totalText">Subtotal: </p>&nbsp;
+                                <p class="totalText" id="subtotal"></p>
+                        </div>
+
+                        <div class="subtotal">
+                                <p class="totalText">Discount: </p>&nbsp;
+                                <p class="totalText" id="discountTotal"></p>   
+                        </div>
+                        
+                        <div class="subtotal">
+                                <p class="totalText">Tax: </p>&nbsp;
+                                <p class="totalText" id="tax"></p>    
+                        </div> 
+
+                        <div class="subtotal">
+                                <p class="totalText">Final Total: </p>&nbsp;
+                                <p class="totalText" id="finalTotal"></p>  
+                        </div> 
+                </div>    
+        </body>
+</html>
