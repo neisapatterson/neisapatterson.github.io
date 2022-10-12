@@ -1,0 +1,87 @@
+<html>
+        <head>
+                <title>Amicable Numbers</title>
+                <link rel="stylesheet" href="styles.css">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <script>
+                        function isFactor(x,y) {
+                                if (y % x == 0) {
+                                        return true;
+                                }
+                                
+                                return false;
+                        }
+
+
+                        function getFactors(num) {
+                                let factors = [];
+
+                                for (i = 0; i < num; i++) {
+                                        if (isFactor(i, num)) {
+                                                factors.push(i);
+                                        }
+                                }
+
+                                return factors;
+                        }
+
+                        function isAmicable(num1, num2, factors1, factors2) {
+                                let value1 = 0;
+                                let value2 = 0;
+
+                                let sum1 = factors1.reduce((previousValue, currentValue) => previousValue + currentValue, value1);
+                                console.log(sum1);
+
+                                let sum2 = factors2.reduce((previousValue, currentValue) => previousValue + currentValue, value1);
+
+                                console.log(sum2);
+                                if (sum1 == num2 && num1 == sum2) {
+                                        return true;
+                                }
+
+                                return false;
+                        }
+
+                        window.onload = (event) => {
+                                let num1 = prompt("Enter a number: ");
+                                let num2 = prompt("Enter a second number: ");
+
+                                let factors1 = getFactors(num1);
+                                let factors2 = getFactors(num2);
+
+                                document.getElementById('num1').innerHTML = "Factors of: " + num1;
+
+                                document.getElementById('num2').innerHTML = "Factors of: " + num2;
+
+                                document.getElementById('num1Factors').innerHTML = factors1;
+
+                                document.getElementById('num2Factors').innerHTML = factors2;
+
+                                if (isAmicable(num1, num2, factors1, factors2)) {
+                                        document.getElementById("amicable").innerHTML = "The numbers: " + num1 + " and " + num2 + " are amicable.";
+                                } else {
+                                        document.getElementById("amicable").innerHTML = "The numbers: " + num1 + " and " + num2 + " are not amicable.";                                      
+                                }
+                        }
+
+                </script>                
+
+        </head>
+        <body>
+                <div class="welcome">
+                        <h1>Are your numbers amicable?</h1>
+                </div>
+
+                <div class="amicableDecision">
+                        <p id="amicable"></p>                        
+                </div>
+
+                <div class="factors">
+                        <p id="num1"></p>
+                        <p id="num1Factors"></p>
+                        <p id="num2"></p>
+                        <p id="num2Factors"></p>
+                </div>
+  
+        </body>
+</html>
