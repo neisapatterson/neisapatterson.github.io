@@ -1,0 +1,52 @@
+<html>
+        <head>
+                <title>Jumping Form</title>
+                <link rel="stylesheet" href="styles.css">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <style>
+                        @import url('https://fonts.googleapis.com/css2?family=DM+Mono&display=swap');
+
+                        body {
+                                background-color: #e3f3ef;
+                        }
+
+                        .jump {
+                                margin-top: 250px;
+                                text-align: center;
+                        }
+
+                        .formText {
+                                font-family: "DM Mono";
+                                font-size: 2vh;
+                        }
+
+                </style>
+                <script>
+                        function jumpText() {
+                                if (document.getElementById('middleButton').value == "JUMP >") {
+                                        valToMove = document.getElementById('leftText').value;
+                                        document.getElementById('leftText').value = "";
+                                        document.getElementById('rightText').value = valToMove;
+                                        document.getElementById('middleButton').value = "< JUMP";
+                                } else {
+                                        valToMove = document.getElementById('rightText').value;
+                                        document.getElementById('rightText').value = "";
+                                        document.getElementById('leftText').value = valToMove;
+                                        document.getElementById('middleButton').value = "JUMP >";                                     
+                                }
+                        }
+
+                </script>                
+
+        </head>
+        <body>
+                <div class="jump">
+                        <form>
+                                <input class="formText" type="text" id="leftText" />
+                                <input class="formText" type="button" id="middleButton" value="JUMP >" onclick="jumpText()" />
+                                <input class="formText" type="text" id="rightText">
+                                
+                        </form>
+                </div>
+        </body>
+</html>

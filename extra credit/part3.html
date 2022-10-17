@@ -1,0 +1,78 @@
+<html>
+        <head>
+                <title>Check Checkboxes</title>
+                <link rel="stylesheet" href="styles.css">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <style>
+                        @import url('https://fonts.googleapis.com/css2?family=DM+Mono&display=swap');
+
+                        body {
+                                background-color: #e3f3ef;
+                        }
+                        .slideshow {
+                                margin-left: 100px;
+                                font-family: "DM Mono";
+                                text-align: center;
+                                font-size: 3.5vh;
+                        }
+
+                        .images {
+                                width: 600px;
+                                height: 600px;
+                        }
+
+                        .btns {
+                                margin-left: 575px;                              
+                        }
+
+                        .btnText {
+                                font-family: "DM Mono";
+                                /* text-align: center; */
+                                /* font-size: 2vh;   */
+                        }
+
+                        
+                </style>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <script>
+                        $(document).ready(function(){
+                                $('.slideshow p:gt(0)').hide();
+
+                                let slideshowInterval = 0;
+                                $("#startBtn").click(
+                                        (function(){
+                                                $('.slideshow p:gt(0)').hide();
+
+                                                slideshowInterval = setInterval(
+                                                        function(){
+                                                                $('.slideshow > :first-child').fadeOut("fast").next('p').fadeTo("slow", 100).end().appendTo('.slideshow');
+                                                        }
+                                                        , 3000);
+                                        })
+                                );
+
+                                $("#stopBtn").click(
+                                        (function(){
+                                        console.log(slideshowInterval);
+                                        clearInterval(slideshowInterval);
+                                        })
+                                );
+                        });
+                </script>
+        </head>
+        <body>
+                <div class="slideshow">
+                        <p><img src="./images/img1.png" class="images"><br/>1</p>
+                        <p><img src="./images/img2.png" class="images"><br/>2</p>
+                        <p><img src="./images/img3.png" class="images"><br/>3</p>
+                        <p><img src="./images/img4.png" class="images"><br/>4</p>
+                        <p><img src="./images/img5.png" class="images"><br/>5</p>
+                </div>
+                <div class="btns">
+                        <input class="btnText" type="button" value="start" id="startBtn"/>
+                        <input class="btnText" type="button" value="stop" id="stopBtn"/>
+                </div>
+
+
+        </body>
+</html>

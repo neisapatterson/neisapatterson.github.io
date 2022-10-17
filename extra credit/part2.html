@@ -1,0 +1,79 @@
+<html>
+        <head>
+                <title>Check Checkboxes</title>
+                <link rel="stylesheet" href="styles.css">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <style>
+                        @import url('https://fonts.googleapis.com/css2?family=DM+Mono&display=swap');
+
+                        body {
+                                background-color: #e3f3ef;
+                        }
+
+                        .checks {
+                                margin-top: 250px;
+                                text-align: center;
+                        }
+
+                        .checkText {
+                                font-family: "DM Mono";
+                                font-size: 2vh;
+                        }
+
+                </style>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <script>
+                        let numChecked = 0;
+
+                        $(document).ready(function(){
+                        $("#checkOrUncheck").click(
+                                function(){
+                                        if(this.checked){
+                                                $('input:checkbox').prop('checked', this.checked); 
+                                                document.getElementById('checkLabel').innerHTML = "Uncheck All";  
+                                                numChecked = 4;
+                                }else{
+                                        $('input:checkbox').prop('checked', false); 
+                                        document.getElementById('checkLabel').innerHTML = "Check All";  
+                                        numChecked = 0;
+                                }
+                        });
+                        });
+
+                        function updateCount(id) {
+                                if (document.getElementById(id).checked) {
+                                        numChecked++;
+                                        console.log(numChecked);
+                                } else {
+                                        numChecked--;
+                                }
+
+                                if (numChecked == 4) {
+                                        $('input:checkbox').prop('checked', true); 
+                                        document.getElementById('checkLabel').innerHTML = "Uncheck All";  
+                                } else {
+                                        $('#checkOrUncheck').prop('checked', false); 
+                                        document.getElementById('checkLabel').innerHTML = "Check All";                                         
+                                }
+                        }
+                </script>
+        </head>
+        <body>
+                <div class="checks">
+                <input type="checkbox" id="checkOrUncheck" name="checkOrUncheck"/>
+                <label id="checkLabel" for="checkOrUncheck" class="checkText">Check All </label><br />
+
+                <input type="checkbox" id="first" class="checkText" name="first" onclick="updateCount('first')"/>
+                <label id="checkLabel" for="checkOrUncheck" class="checkText">First</label><br />
+
+                <input type="checkbox" class="checkText" id="second" name="second" onclick="updateCount('second')"/>
+                <label for="second" class="checkText">Second</label><br />
+
+                <input type="checkbox" class="checkText" id="third" name="third" onclick="updateCount('third')"/>
+                <label for="third" class="checkText">Third</label><br />
+
+                <input type="checkbox" name="fourth" id="fourth" onclick="updateCount('fourth')"/>
+                <label for="fourth" class="checkText">Fourth </label><br />
+                </div> 
+        </body>
+</html>
