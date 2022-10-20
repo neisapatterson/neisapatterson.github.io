@@ -2,34 +2,202 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Jade Delight</title>
+<style>
+label {
+    text-align:left;
+    display:inline-block;
+    min-width:100px;
+}
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-        $(document).ready(function(){
-        // var activities = document.getElementsByName(("quan0")[0]);
-        // console.log(activites)
-        // activities.addEventListener("change", function() {
-        // console.log(activities.value);
-        // });
-        
-        // console.log(document.getElementsByName("p_or_d"))
-        console.log(document.getElementsByName("quan0")[0])
-        let yeah = document.getElementsByName("quan0")[0]
-        yeah.addEventListener("change", function() {
-        console.log(yeah.value);
-        });
+        // countNums
+        // purpose: used to validate phone numbers
+        // input: string of phone number
+        // output: bool of whether a valid phone number was entered
+        function countNums(str) {
+                count = 0;
 
-        // $("#checkOrUncheck").click(
-        //         function(){
-        //                 if(this.checked){
-        //                         $('input:checkbox').prop('checked', this.checked); 
-        //                         document.getElementById('checkLabel').innerHTML = "Uncheck All";  
-        //                         numChecked = 4;
-        //         }else{
-        //                 $('input:checkbox').prop('checked', false); 
-        //                 document.getElementById('checkLabel').innerHTML = "Check All";  
-        //                 numChecked = 0;
-        //         }
-        // });
+                // loop through the string and add to the count if digit
+                for (i = 0; i < str.length; i++) {
+                        if (!(isNaN(str[i]))) {
+                                count++;
+                        }
+                }
+
+                // only validate 7 or 10 numbers
+                if (count == 7 || count == 10) {
+                        return true;
+                } else {
+                        return false;
+                }
+        }
+
+        // validate
+        // purpose: used to validate the form
+        // input: n/a
+        // output: bool of whether the form is valid
+        function validate() {
+                // Last name validation
+                if (document.getElementsByName("lname")[0].value == "") {
+                        alert("Please enter your last name.");
+                        return false;
+                }
+
+                // Phone number validation
+                if (countNums(document.getElementsByName("phone")[0].value) == false) {
+                        alert("Please enter a valid phone number.");
+                        return false;
+                }
+                
+                // Delivery address validation
+                if (document.getElementsByName("p_or_d")[1].checked) {
+                        if (document.getElementsByName("city")[0].value == "" || document.getElementsByName("street")[0].value == "") {
+                                alert("Please enter a city and street address.");
+                                return false;
+                        }
+                }
+
+                // Items ordered validation
+                ordered = false;
+
+                for (i = 0; i < 5; i++) {
+                        (function(index) {
+                                if (document.getElementsByName("quan" + i)[0].value != 0) {
+                                        ordered = true;
+                                }
+                        })(i);
+                }
+
+                if (!ordered) {
+                        alert("Please order at least 1 item.");
+                        return false;
+                }
+
+                        return true;
+        }
+
+        // getOrderSummary
+        // purpose: used to print to the order summary to the new tab
+        // input: a window document
+        // output: n/a
+        function getOrderSummary(new_window) {
+                let orderSummary = "";
+
+                // write order summary to the new tab
+                for (i = 0; i < 5; i++) {
+                        (function(index) {
+                                if (document.getElementsByName("quan" + index)[0].value != 0) {
+                                        orderSummary += "<tr>";
+                                        orderSummary += td(document.getElementsByName("quan" + index)[0].value+"&nbsp;", "quantity")
+                                        orderSummary += td(menuItems[index].name+"&nbsp;", "itemName")
+                                        orderSummary += td("$" +costs[index].toFixed(2) +"<br />", "cost");
+                                        orderSummary += "</tr>";
+                                }
+
+                        })(i);
+                }
+                
+                // Spacer
+                orderSummary += "<tr>";
+                orderSummary += td("-----------------------------------<br />");
+                orderSummary += "</tr>";
+
+                // Calculate values to write to the new tab
+                let value = 0;
+                let sum = costs.reduce((previousValue, currentValue) => previousValue + currentValue, value);
+                let tax = (sum * .0625);
+                let total = sum + tax;
+
+                // Write totals to the new tab
+                orderSummary += "<tr>";
+                orderSummary += td("Subtotal: " + sum.toFixed(2) + "<br />");
+                orderSummary += td(" Tax: " + tax.toFixed(2) + "<br />");
+                orderSummary += td(" Total: " + total.toFixed(2) + "<br />");
+                orderSummary += "</tr>";
+                
+                // Get the date
+                newDateObj = new Date;
+                oldDateObj = new Date;
+                                
+                if (document.getElementsByName("p_or_d")[0].checked) {
+                        newDateObj = new Date(oldDateObj.getTime() + 20*60000);
+                } else {
+                        newDateObj = new Date(oldDateObj.getTime() + 40*60000);
+                        }
+
+                // Spacer
+                orderSummary += "<tr>";
+                orderSummary += td("-----------------------------------<br />");
+                orderSummary += "</tr>";
+                        
+                // Write the date to the new tab
+                orderSummary += "<tr>";
+                orderSummary += td("Pickup Time: " + newDateObj.toString());
+                orderSummary += "</tr>";                            
+
+                new_window.document.writeln(orderSummary)
+        }
+
+        // calc_totals
+        // purpose: used to calculate the totals of the items
+        // input: index
+        // output: n/a
+        // effects: calculated costs are written to the document
+        function calc_totals(index) {
+
+                // calculate the cost of the items, update the subtotal, tax, and total
+                let quantity = document.getElementsByName("quan" + index)[0].value;
+                let updated_cost = quantity * menuItems[index].cost;
+                costs[index] = updated_cost;
+                let price = quantity * menuItems[index].cost;
+                let value = 0;
+                sum = costs.reduce((previousValue, currentValue) => previousValue + currentValue, value);
+                let tax = (sum * .0625);
+                let total = sum + tax;
+
+                // write the updated costs, subtotal, tax, and total
+                document.getElementsByName("cost")[index].value = price.toFixed(2);
+                document.getElementsByName("subtotal")[0].value = sum.toFixed(2);  
+                document.getElementsByName("tax")[0].value = tax.toFixed(2);    
+                document.getElementsByName("total")[0].value = total.toFixed(2);                                 
+        }
+
+        $(document).ready(function(){
+                // array for calculating the subtotal
+                costs = [0, 0, 0, 0, 0]
+
+                // hide the address by default
+                $(".address").hide();
+
+                // if the order is pickup, hide the address
+                document.getElementsByName("p_or_d")[0].addEventListener("change", function() {
+                        $(".address").hide();
+                });
+
+                // if the order is delivery, show the address
+                document.getElementsByName("p_or_d")[1].addEventListener("change", function() {
+                        $(".address").show();         
+                });
+
+                // add event listeners for all of the quantity boxes
+                for (i = 0; i < 5; i++) {
+                        (function(index) {
+                                document.getElementsByName("quan" + i)[0].addEventListener("change", function() {
+                                        calc_totals(index);
+                                });
+                        })(i);
+                }
+
+                // checks if the form is valid, displays popup, and opens
+                // receipt tab
+                document.querySelectorAll("input[type=button]")[0].addEventListener("click", function() {
+                        if (validate()) {
+                                alert("Thank you for ordering from Jade Delight!")
+                                let new_window = window.open();
+                                getOrderSummary(new_window);
+                        }
+                });
         });
 </script>
 </head>
