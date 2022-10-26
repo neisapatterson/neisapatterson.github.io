@@ -1,0 +1,28 @@
+
+<!doctype html>
+<html>
+        <head>
+        <meta charset="utf-8">
+        <title>JSON Stringify</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <!--script language="javascript" src="animals.json"></script-->
+        </head>
+
+        <body>
+                <script language="javascript">
+                $.get( "https://neisapatterson.github.io/assignment7/songList.json", 
+                        function( data ) {
+                                str = JSON.stringify(data);
+                                document.write(str +"<br/>");
+                        strHTML= "<ul>";
+                        data.forEach(function(animal) { 
+                        strHTML += "<li>" 
+                                + animal.name + " : " 
+                                        + animal.type + "</li>";
+                                }) 
+                strHTML += "</ul>";
+                document.write (strHTML);  /**/
+                })
+        </script>
+        </body>
+</html>

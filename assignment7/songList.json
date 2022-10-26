@@ -1,4 +1,4 @@
-{ "songList": [
+[
         {
                 "songTitle": "Sweater Weather",
                 "Artist": "The Neighbourhood",
@@ -82,4 +82,4 @@
                 "Genre": ["Hip-Hop", "Rap"],
                 "Year": 2022
         }
-]}
+]
