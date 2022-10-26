@@ -1,0 +1,85 @@
+{ "songList": [
+        {
+                "songTitle": "Sweater Weather",
+                "Artist": "The Neighbourhood",
+                "Genre": ["Alternative"],
+                "Year": 2013
+        },
+
+        {
+                "songTitle": "Chanel",
+                "Artist": "Frank Ocean",
+                "Genre": ["Pop"],
+                "Year": 2017
+        },
+
+        {
+                "songTitle": "LA Laker Freestyle",
+                "Artist": "Central Cee",
+                "Genre": ["Rap"],
+                "Year": 2022
+        },
+
+        {
+                "songTitle": "Ex-Factor",
+                "Artist": "Lauryn Hill",
+                "Genre": ["R&B", "Soul"],
+                "Year": 1998
+        },
+
+        {
+                "songTitle": "Bound 2",
+                "Artist": "Kanye West",
+                "Genre": ["Hip-Hop", "Rap"],
+                "Year": 2013
+        },
+
+        {
+                "songTitle": "Suck It Up",
+                "Artist": "Monaleo",
+                "Genre": ["Rap"],
+                "Year": 2021
+        },
+
+        {
+                "songTitle": "DEAD MAN WALKING",
+                "Artist": "Brent Faiyaz",
+                "Genre": ["R&B", "Soul"],
+                "Year": 2022
+        },
+
+        {
+                "songTitle": "Isn't She Lovely",
+                "Artist": "Stevie Wonder",
+                "Genre": ["R&B", "Soul"],
+                "Year": 1976
+        },
+        
+        {
+                "songTitle": "Big Steppa",
+                "Artist": "Flo Milli",
+                "Genre": ["Hip-Hop", "Rap"],
+                "Year": 2022
+        },
+        
+        {
+                "songTitle": "Gang Slide",
+                "Artist": "Blxst",
+                "Genre": ["Hip-Hop", "Rap"],
+                "Year": 2020
+        },
+
+        {
+                "songTitle": "Raindrops",
+                "Artist": "GoldLink",
+                "Genre": ["Hip-Hop", "Rap"],
+                "Year": 2021
+        },
+
+        {
+                "songTitle": "Betty (Get Money)",
+                "Artist": "Young Gravy",
+                "Genre": ["Hip-Hop", "Rap"],
+                "Year": 2022
+        }
+]}
