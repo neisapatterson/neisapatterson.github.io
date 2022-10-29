@@ -44,17 +44,18 @@ label {
                                         }
 
                                         $( "#selectionBtn" ).click(function() {
-                                                strHTML= "<ul>";
+                                                strHTML = "";
+                                                songList = [];
                                                 data.forEach(function(song) { 
 
                                                         genre = song.Genre;
                                                         genre.forEach(function(musicGenre){
                                                                 if (musicGenre==     document.getElementById("selectGenres").value) {
-                                                                songList.push(song) 
-                                                                console.log(song)
-                                                        }
+                                                                songList.push(song);                                                        }
                                                         })
                                         });
+                                        strHTML= "<ul>";
+
                                         songList.forEach(function(song) {
                                                 strHTML += "<p>" 
                                                         + song.songTitle + "<br />"
