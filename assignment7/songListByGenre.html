@@ -1,22 +1,98 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Jade Delight</title>
+<style>
+label {
+    text-align:left;
+    display:inline-block;
+    min-width:100px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
 
-<!doctype html>
-<html>
-        <head>
-        <meta charset="utf-8">
-        <title>JSON Stringify</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                <!--script language="javascript" src="animals.json"></script-->
-        </head>
+<body>
+<script>
+        genres = [];
+        songList = [];
+        $(document).ready(function(){
 
-        <body>
-                <script language="javascript">
+                // get all the genres frrom the JSON with no repeats
                 $.get( "https://neisapatterson.github.io/assignment7/songList.json", 
                         function( data ) {
-                                str = JSON.stringify(data);
-                                document.write(str +"<br/>");
-                })
+                                data.forEach(function(song) {
+                                        genre = song.Genre;
 
-                
-        </script>
-        </body>
+                                        genre.forEach(function(musicGenre){
+                                                if (!genres.includes(musicGenre)){
+                                                        genres.push(musicGenre);
+                                                        console.log(genres)
+                                                }
+                                        })
+                                        }) 
+
+                                        let selection = document.getElementById("selectGenres");
+
+                                        // create all the genre options
+                                        for (let i = 0; i < genres.length; i++) {
+                                                let opt = document.createElement("option");
+                                                opt.textContent = genres[i];
+                                                opt.value = genres[i];
+                                                console.log(opt.value);
+                                                selection.appendChild(opt);
+                                        }
+
+                                        $( "#selectionBtn" ).click(function() {
+                                                strHTML= "<ul>";
+                                                data.forEach(function(song) { 
+
+                                                        genre = song.Genre;
+                                                        genre.forEach(function(musicGenre){
+                                                                if (musicGenre==     document.getElementById("selectGenres").value) {
+                                                                songList.push(song) 
+                                                                console.log(song)
+                                                        }
+                                                        })
+                                        });
+                                        songList.forEach(function(song) {
+                                                strHTML += "<p>" 
+                                                        + song.songTitle + "<br />"
+                                                        + "Arist: " + song.Artist +  "<br />" + "Genre: "
+                                                        genre = song.Genre;
+                                                        genre.forEach(function(musicGenre){
+                                                                strHTML += musicGenre; 
+                                                                strHTML += " ";
+                                                        })
+
+                                                        strHTML += "<br />"
+                                                        strHTML += "Released: " + song.Year
+                                                        + "<p>";
+                                                        }) 
+                                        strHTML += "</ul>";
+                                        document.getElementById("genreList").innerHTML = "";
+                                        document.getElementById("genreList").innerHTML = (strHTML);
+                                                });
+
+                                })
+
+                        });
+
+</script>
+
+<h1>Filter By Genre</h1>
+<form>
+<script>
+</script>
+
+<select id="selectGenres">
+        <option>Choose a genre</option>
+</select>
+<br />
+<input id="selectionBtn" type = "button" value = "Search By Genre" />
+</form>
+
+<div id="genreList"></div>
+
+</body>
 </html>
