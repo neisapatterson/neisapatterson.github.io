@@ -1,0 +1,82 @@
+
+<!doctype html>
+<html>
+<head>
+	<title>MET API</title>
+	<meta charset="utf-8"/>
+	<script>
+		function getMETObjects() {
+			/* Step 1: Make instance of request object...
+			...to make HTTP request after page is loaded*/
+			request = new XMLHttpRequest();
+			console.log("1 - request object created");
+ 
+			// Step 2: Set the URL for the AJAX request to be the JSON file
+ 
+		request.open("GET", "https://collectionapi.metmuseum.org/public/collection/v1/search?q=orchid", true)
+
+			console.log("2 - opened request file");
+ 
+			// Step 3: set up event handler/callback
+
+			request.onreadystatechange = function() {
+				console.log("3 - readystatechange event fired.");
+ 
+				if (request.readyState == 4 && request.status == 200) {
+
+					// Step 5: wait for done + success
+					console.log("5 - response received");
+					result = request.responseText;
+					orchids = JSON.parse(result);
+					
+					document.getElementById("data").innerHTML ="(AJAX TEMPLATE) Objects at the MET that have to do with orchids: " + orchids["objectIDs"]; 
+					
+				}
+				else if (request.readyState == 4 && request.status != 200) {
+
+					document.getElementById("data").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
+
+				}
+
+				else if (request.readyState == 3) {
+
+					document.getElementById("data").innerHTML = "Too soon!  Try again";
+
+				}
+
+			}
+		// Step 4: fire off the HTTP request
+			request.send();
+			console.log("4 - Request sent");
+
+                        res = 
+                        fetch("https://collectionapi.metmuseum.org/public/collection/v1/search?q=orchid")
+                        .then (res => res.text())
+                        .then (data => 
+                        {
+                        data = JSON.parse(data)
+                        data = data.objectIDs;
+                        document.getElementById("jsonData").innerHTML ="(FETCH) Objects at the MET that have to do with orchids: " + data; 
+                        })
+                        .catch (error => console.log(error))
+		}
+	</script>
+</head>
+
+
+<body onload="getMETObjects()">
+
+	<h1>MET Objects</h1>
+	<div id="data">Loading...</div>
+        <div id="jsonData">Loading...</div>
+        <h2>API: MET Museum API - an api for accessing the online resources at the MET</h2>
+        <p>API Source: https://metmuseum.github.io/</p>
+        <p>API Options: I used the search option with a query for orchids</p>
+        <p>Applications:</p>
+        <ol>
+                <li>Researchers looking for pieces at the MET that match their topic could find examples using the search query. I plan on using this next week for my art history paper.</li>
+                <li>People could search for their favorite artists and find the objects at the MET that are made by them.</li>
+        </ol>
+
+</body>
+</html>
